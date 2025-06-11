@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lær mer om hvordan du tilpasser varsler og innstillinger for å sikre deg mot svindel i AutopayDetect webinar">
+    <meta name="keywords" content="AutopayDetect, webinar, svindel, varsler, innstillinger, sikkerhet">
+    
     <title>AutopayDetect Webinar Pop-up</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0d2458">
     <!-- Importerer Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Importerer Plus Jakarta Sans-fonten -->
@@ -66,7 +71,7 @@
                 <div class="hidden lg:block">
                     <div class="bg-white p-2 rounded-lg shadow-lg inline-block">
                         <img 
-                            src="Inyett.png" 
+                            src="Valuta-norsk.png" 
                             alt="Skjermbilde av AutopayDetect innstillinger" 
                             class="rounded-md w-[449px] h-[231px]"
                             onerror="this.onerror=null;this.src='https://placehold.co/449x231/FFFFFF/333333?text=Skjermbilde';"
@@ -105,5 +110,19 @@
         }
     </script>
 
+    <script>
+        // Register Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+    </script>
 </body>
 </html>
